@@ -138,3 +138,26 @@ h1 {
 .game-container .cell:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><text y='24' font-size='24'>🔨</text></svg>") 14 14, pointer;
 }
+
+@media (max-width: 640px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-container {
+    width: 320px;
+    max-width: 320px;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .sidebar {
+    min-width: auto;
+    width: 320px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
