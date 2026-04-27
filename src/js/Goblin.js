@@ -14,7 +14,7 @@ export default class Goblin {
 
   hide() {
     if (this.element.parentElement) {
-      this.element.parentElement.removeChild(this.element);
+      this.element.remove();
     }
   }
 }

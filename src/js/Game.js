@@ -70,7 +70,7 @@ export default class Game {
       }
     }
 
-    this.activeCell = this.board.getRandomCell();
+    this.activeCell = this.board.getRandomCell(this.activeCell);
     this.goblin.showIn(this.activeCell);
     this.goblinTimer = setTimeout(() => this.nextRound(), GOBLIN_SHOW_TIME_MS);
   }

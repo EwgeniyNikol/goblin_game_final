@@ -19,7 +19,11 @@ export default class Board {
     }
   }
 
-  getRandomCell() {
-    return this.cells[Math.floor(Math.random() * this.cells.length)];
+  getRandomCell(excludeCell = null) {
+    let cell;
+    do {
+      cell = this.cells[Math.floor(Math.random() * this.cells.length)];
+    } while (cell === excludeCell && this.cells.length > 1);
+    return cell;
   }
 }
