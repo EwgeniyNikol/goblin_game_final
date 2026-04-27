@@ -54,12 +54,13 @@ export default class Game {
       this.updateUI();
       this.goblin.hide();
       clearTimeout(this.goblinTimer);
+      const excludedCell = this.activeCell;
       this.activeCell = null;
-      this.nextRound();
+      this.nextRound(excludedCell);
     }
   }
 
-  nextRound() {
+  nextRound(excludeCell = null) {
     if (!this.isRunning) return;
     if (this.activeCell) {
       this.misses += 1;
@@ -70,7 +71,7 @@ export default class Game {
       }
     }
 
-    this.activeCell = this.board.getRandomCell(this.activeCell);
+    this.activeCell = this.board.getRandomCell(excludeCell || this.activeCell);
     this.goblin.showIn(this.activeCell);
     this.goblinTimer = setTimeout(() => this.nextRound(), GOBLIN_SHOW_TIME_MS);
   }
